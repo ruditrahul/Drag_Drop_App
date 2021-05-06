@@ -129,12 +129,12 @@ function handleAlter(todoDiv,listMainDiv) {
     editBtn.addEventListener("click", (e) => {
         const targetItem = e.target;
         if (targetItem.parentNode.parentNode.classList.contains("edit-mode")) {
-            targetItem.parentNode.previousSibling.innerText = input.value;
+            targetItem.parentNode.parentNode.setAttribute("contenteditable","false");
             targetItem.parentNode.parentNode.classList.remove("edit-mode");
             input.value = '';
         } else {
             targetItem.parentNode.parentNode.classList.add("edit-mode");
-            input.value = targetItem.parentNode.parentNode.innerText;
+            targetItem.parentNode.parentNode.setAttribute("contenteditable","true");
 
         }
 
